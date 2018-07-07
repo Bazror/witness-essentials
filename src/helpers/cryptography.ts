@@ -28,8 +28,6 @@ export let initiate_active_key_cryptographie = async () => {
         let confirmation = readline.question(`Please confirm your encryption key: `, { hideEchoBack: true })
         if (encryption_key === confirmation) {
           console.log(`The encryption will take a few seconds.`)
-          //let 
-          //let decrypted = decrypt(encrypted, '123')
           encrypted = encrypt(active_key, encryption_key)
           console.log(`Success. Here is your encrypted active-key`)
           console.log('\n' + '----------------------------' + '\n')

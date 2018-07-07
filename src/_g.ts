@@ -3,7 +3,7 @@ import * as dsteem from 'dsteem'
 const fs = require('fs')
 
 export let config = JSON.parse(fs.readFileSync('config.json'))
-export const retries = 1
+export const retries = 3
 
 export const RPC_NODES = config.RPC_NODES
 

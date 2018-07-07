@@ -31,7 +31,7 @@ export let update_witness = async (key, retries = 0) => {
   } catch (e) {
     console.error('update_witness', e)
     if (retries < _g.retries) {
-      await _g.timeout(2)
+      await _g.timeout(1)
       await update_witness(key, retries += 1)
     } else {
       rpc_failover()
@@ -51,7 +51,7 @@ export let get_witness_by_account = async (retries = 0) => {
   } catch (e) {
     console.error('get_witness_by_account', e)
     if (retries < _g.retries) {
-      await _g.timeout(2)
+      await _g.timeout(1)
       await get_witness_by_account(retries += 1)
     } else {
       rpc_failover()
@@ -72,7 +72,7 @@ export let get_account = async (name, retries = 0) => {
     return acc[0]
   } catch (error) {
     if (retries < _g.retries) {
-      await _g.timeout(2)
+      await _g.timeout(1)
       await get_account(name, retries += 1)
     } else {
       rpc_failover()
@@ -85,12 +85,12 @@ export let publish_feed = async (price, retries = 0) => {
   try {
     let exchange_rate = new dsteem.Price(dsteem.Asset.fromString(`${price.toFixed(3)} SBD`), dsteem.Asset.fromString(`${(1 / (PEG ? PEG : 1)).toFixed(3)} STEEM`))
     let op: dsteem.FeedPublishOperation = ['feed_publish', { exchange_rate, publisher: WITNESS }]
-    //await client.broadcast.sendOperations([op], dsteem.PrivateKey.from(_g.ACTIVE_KEY))
+    await client.broadcast.sendOperations([op], dsteem.PrivateKey.from(_g.ACTIVE_KEY))
     _g.log(`Published Pricefeed ${exchange_rate}`)
   } catch (error) {
     console.error(error)
     if (retries < _g.retries) {
-      await _g.timeout(2)
+      await _g.timeout(1)
       await publish_feed(price, retries += 1)
     } else {
       rpc_failover()
