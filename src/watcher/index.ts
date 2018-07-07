@@ -27,7 +27,6 @@ let start = async (error = false) => {
  
     while (true) {
       await watch_witness()
-      console.log(`Waiting ${INTERVAL_WATCHER} minute`)
       await _g.timeout(INTERVAL_WATCHER * 60)
     }
   } catch (e) {
