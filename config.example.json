@@ -17,7 +17,7 @@
   ],
   "PEG": 1,
   "INTERVAL_FEED": 60,
-  "INTERVAL_WATCHER": 1,
+  "INTERVAL_WATCHER": 10,
   "BACKUP_KEYS": [
   ],
   "MISSED_BLOCKS_THRESHOLD": 2,
@@ -25,5 +25,5 @@
   "SMS_PROVIDER": "nexmo|twilio",
   "ALERT_AFTER_EVERY_MISSED": true,
   "ROTATE_KEYS": false,
-  "ROTATE_ROUNDS": -1
+  "ROTATE_ROUNDS": 0
 }

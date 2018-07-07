@@ -1,7 +1,7 @@
 {
-  "name": "witness-failover",
+  "name": "witness-essentials",
   "version": "1.0.0",
-  "description": "STEEM Witness Failover incl. SMS-Alerts via NEXMO",
+  "description": "Witness Watcher incl. Alerts & Kill-Switch, Pricefeed",
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/watcher/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/therealwolf42/witness-failover.git"
+    "url": "git+https://github.com/therealwolf42/witness-essentials.git"
   },
   "author": "therealwolf42",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "twilio": "^3.17.4"
   },
   "bugs": {
-    "url": "https://github.com/therealwolf42/witness-failover/issues"
+    "url": "https://github.com/therealwolf42/witness-essentials/issues"
   },
-  "homepage": "https://github.com/therealwolf42/witness-failover#readme"
+  "homepage": "https://github.com/therealwolf42/witness-essentials#readme"
 }
