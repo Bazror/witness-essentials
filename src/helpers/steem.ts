@@ -14,7 +14,7 @@ export let update_witness = async (key, retries = 0) => {
   try {
     if (!TEST_MODE) {
       if (key === _g.NULL_KEY) {
-        steem.broadcast.witnessUpdate(_g.ACTIVE_KEY, 'therealwolf', 'https://steemit.com', _g.NULL_KEY, _g.PROPS, '0.000 STEEM', async (error, result) => {
+        steem.broadcast.witnessUpdate(_g.ACTIVE_KEY, WITNESS, _g.WITNESS_URL, _g.NULL_KEY, _g.PROPS, '0.000 STEEM', async (error, result) => {
           _g.log(error, result)
           if(!error) {
             _g.log('Disabled Witness')
