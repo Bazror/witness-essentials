@@ -101,7 +101,7 @@ let watch_witness = async () => {
         console.log(`Backup Keys: ${BACKUP_KEYS.length > 0 ? BACKUP_KEYS : `NO KEYS - Disabling Witness Directly`}`)
         console.log(`KEY ROTATION: ${ROTATE_KEYS ? `ENABLED (${ROTATE_ROUNDS > -1 ? ROTATE_ROUNDS : 'INFINITE'} ROUNDS)` : `DISABLED`} ${TEST_MODE ? 'Test-Mode: ENABLED' : ''}`)
         console.log('\n----------------------------\n')
-        console.log('Witness Watcher: Active\n')
+        _g.log('Witness Watcher: Active\n')
       }
     }
 
