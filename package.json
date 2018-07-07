@@ -7,7 +7,8 @@
     "start": "tsc && node dist/watcher/index.js",
     "watcher": "tsc && node dist/watcher/index.js",
     "pricefeed": "tsc && node dist/pricefeed/index.js",
-    "test_sms": "tsc && node dist/test_sms.js",
+    "test_sms": "tsc && node dist/watcher/test_sms.js",
+    "test_email": "tsc && node dist/watcher/test_email.js",
     "watch": "tsc -w"
   },
   "repository": {
@@ -23,8 +24,10 @@
     "dotenv": "^5.0.0",
     "dsteem": "^0.9.0",
     "dsteem-pool": "^1.0.7",
+    "nodemailer": "^4.6.7",
     "readline-sync": "^1.4.9",
     "steem": "^0.7.1",
+    "steem-js-witness-fix": "^0.7.1",
     "superagent": "^3.8.2",
     "twilio": "^3.17.4"
   },

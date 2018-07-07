@@ -1,9 +1,11 @@
 import * as dsteem from 'dsteem'
 //import { Client } from 'dsteem-pool'
-import * as steem from 'steem'
+import * as steem from 'steem-js-witness-fix'
 import * as _g from '../_g'
 
-let { RPC_NODES, TEST_MODE, WITNESS, PEG } = _g.config
+import { send_email } from './alert'
+
+let { RPC_NODES, TEST_MODE, WITNESS, PEG, USE_EMAIL_ALERT } = _g.config
 let rpc_node = RPC_NODES ? RPC_NODES[0] : 'https://api.steemit.com'
 
 let client = new dsteem.Client(rpc_node,  { timeout: 8 * 1000 })
@@ -12,12 +14,14 @@ export let update_witness = async (key, retries = 0) => {
   try {
     if (!TEST_MODE) {
       if (key === _g.NULL_KEY) {
-        steem.broadcast.witnessUpdate(_g.ACTIVE_KEY, 'therealwolf', 'https://steemit.com', _g.NULL_KEY, _g.PROPS, '0.000 STEEM', function (error, result) {
+        steem.broadcast.witnessUpdate(_g.ACTIVE_KEY, 'therealwolf', 'https://steemit.com', _g.NULL_KEY, _g.PROPS, '0.000 STEEM', async (error, result) => {
           _g.log(error, result)
           if(!error) {
             _g.log('Disabled Witness')
+            if(USE_EMAIL_ALERT) await send_email(`Disabled Witness`, `Successfully disabled Witness.`)
           } else {
             console.error(error)
+            if(USE_EMAIL_ALERT) await send_email(`Error`, `Couldn't disable Witness`)
           }
         })
       } else {
@@ -26,7 +30,7 @@ export let update_witness = async (key, retries = 0) => {
         _g.log(`Updated Witness to ${key}`)
       }
     } else {
-      _g.log('WOULD HAVE UPDATED WITNESS - BUT IN TESTMODE')
+      _g.log(`Test-Mode: Would have updated to ${key}.`)
     }
   } catch (e) {
     console.error('update_witness', e)

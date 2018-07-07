@@ -1,8 +1,5 @@
 import axios from 'axios'
-
 import * as _g from '../_g'
-
-const request = require('superagent')
 
 export let bittrex_price = async () => {
   try {

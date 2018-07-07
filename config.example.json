@@ -8,7 +8,7 @@
   ],
   "WITNESS": "",
   "TEST_MODE": false,
-  "ENABLE_ENCRYPTION": true,
+  "ENABLE_ENCRYPTION": false,
   "EXCHANGES": [
     "bittrex",
     "binance",
@@ -20,10 +20,13 @@
   "INTERVAL_WATCHER": 10,
   "BACKUP_KEYS": [
   ],
-  "MISSED_BLOCKS_THRESHOLD": 2,
+  "MISSED_BLOCKS_THRESHOLD": 1,
   "USE_SMS_ALERT": true,
   "SMS_PROVIDER": "nexmo|twilio",
+  "USE_EMAIL_ALERT":true,
+  "EMAIL_TO":"",
+  "EMAIL_FROM":"",
   "ALERT_AFTER_EVERY_MISSED": true,
   "ROTATE_KEYS": false,
-  "ROTATE_ROUNDS": 0
+  "ROTATE_ROUNDS": 1
 }

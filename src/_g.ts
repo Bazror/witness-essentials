@@ -9,6 +9,7 @@ export const RPC_NODES = config.RPC_NODES
 
 export const NULL_KEY = 'STM1111111111111111111111111111111114T1Anm'
 export let ACTIVE_KEY = ''
+export let ORIG_KEY = ''
 
 export let timeout = (sec) => {
   return new Promise(resolve => setTimeout(resolve, sec * 1000))
