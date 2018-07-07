@@ -1,0 +1,29 @@
+{
+  "RPC_NODES": [
+    "https://api.steemit.com",
+    "https://steemd.privex.io",
+    "https://gtg.steem.house:8090",
+    "https://rpc.buildteam.io",
+    "https://steemd.minnowsupportproject.org"
+  ],
+  "WITNESS": "",
+  "TEST_MODE": false,
+  "ENABLE_ENCRYPTION": true,
+  "EXCHANGES": [
+    "bittrex",
+    "binance",
+    "huboi",
+    "upbit"
+  ],
+  "PEG": 1,
+  "INTERVAL_FEED": 60,
+  "INTERVAL_WATCHER": 1,
+  "BACKUP_KEYS": [
+  ],
+  "MISSED_BLOCKS_THRESHOLD": 2,
+  "USE_SMS_ALERT": true,
+  "SMS_PROVIDER": "nexmo|twilio",
+  "ALERT_AFTER_EVERY_MISSED": true,
+  "ROTATE_KEYS": false,
+  "ROTATE_ROUNDS": -1
+}
