@@ -12,7 +12,7 @@ Script that watches for missed blocks of your witness. In case of a missed block
 
 - Keys can be rotated for a number of rounds or endlessly. For example, if you have 3 different servers, if all of them fail after another, instead of disabling the witness, the first server gets chosen again - until the number of rounds have been reached, in that case the witness would be finally disabled.
 
-- You can enable alerts for missed blocks, change in signing-keys & disabling of the witness via SMS (NEXMO & TWILIO) and EMAIL (GMAIL).
+- You can enable alerts for missed blocks via SMS (NEXMO & TWILIO) and EMAIL (GMAIL).
 
 - RPC-Failover
 
