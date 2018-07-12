@@ -11,7 +11,7 @@ export let initiate_active_key_cryptographie = async () => {
     let account:any = await get_account(WITNESS)
     if (!process.env.ENCRYPTED_ACTIVE_KEY) {
       console.log('\n' + '----------------------------' + '\n')
-      console.log(`Welcome to Wolf's Witness `)
+      console.log(`Welcome to Wolf's Witness Essentials`)
       console.log(`The first step is to encrypt your private active-key. Afterwards, please copy the encrypted key and paste it into your .env.`)
       console.log(`\nInfo: The module that is used for this dialogue, does not support the backspace-key aka. the deletion of password (hidden) characters. Either restart the script or press enter to re-enter your encryption-key in case of mistyping.\n`)
       console.log('\n' + '----------------------------' + '\n')

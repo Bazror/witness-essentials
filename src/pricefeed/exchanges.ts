@@ -12,7 +12,7 @@ export let bittrex_price = async () => {
     _g.log(`Bittrex ${BTC_STEEM * BTC_USD}$`)
     return BTC_STEEM * BTC_USD
   } catch (error) {
-    console.error(error)
+    console.error(`bittrex_price`, error)
     return 0
   }
 }
@@ -28,7 +28,7 @@ export let binance_price = async () => {
     _g.log(`Binance ${BTC_STEEM * BTC_USD}$`)
     return BTC_STEEM * BTC_USD
   } catch (error) {
-    console.error(error)
+    console.error(`binance_price`, error)
     return 0
   }
 }
@@ -46,7 +46,7 @@ export let huobi_price = async () => {
     _g.log(`Huobi ${BTC_STEEM * BTC_USD}$`)
     return BTC_STEEM * BTC_USD
   } catch (error) {
-    console.error(error)
+    console.error(`huobi_price`, error)
     return 0
   }
 }
@@ -64,7 +64,22 @@ export let upbit_price = async () => {
     _g.log(`Upbit ${BTC_STEEM * BTC_USD}$`)
     return BTC_STEEM * BTC_USD
   } catch (error) {
-    console.error(error)
+    console.error(`upbit_price`, error.message)
+    return 0
+  }
+}
+
+export let poloniex_price = async () => {
+  try {
+    let Ticker = (await axios.get('https://poloniex.com/public?command=returnTicker')).data
+
+    let BTC_USD = JSON.parse(JSON.stringify(Ticker))['USDT_BTC'].last
+    let BTC_STEEM = JSON.parse(JSON.stringify(Ticker))['BTC_STEEM'].last
+
+    _g.log(`Poloniex ${BTC_STEEM * BTC_USD}$`)
+    return BTC_STEEM * BTC_USD
+  } catch (error) {
+    console.error(`poloniex_price`, error.message)
     return 0
   }
 }

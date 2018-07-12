@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-import { bittrex_price, binance_price, huobi_price, upbit_price } from './exchanges'
+import { bittrex_price, binance_price, huobi_price, upbit_price, poloniex_price } from './exchanges'
 import { get_account, publish_feed } from '../helpers/steem'
 import { initiate_active_key_cryptographie } from '../helpers/cryptography'
 const _g = require('../_g')
@@ -40,11 +40,13 @@ let update_pricefeed = async () => {
     if (EXCHANGES.includes('binance')) promises.push(binance_price())
     if (EXCHANGES.includes('huboi')) promises.push(huobi_price())
     if (EXCHANGES.includes('upbit')) promises.push(upbit_price())
-    let prices = await Promise.all(promises)
+    if (EXCHANGES.includes('poloniex')) promises.push(poloniex_price())
+    let x = await Promise.all(promises)
+    let prices = []
 
-    for (let p of prices) {
-      if (!p || p <= 0 || isNaN(p)) {
-        return false
+    for (let p of x) {
+      if (p && p > 0 && !isNaN(p)) {
+        prices.push(p)
       }
     }
 

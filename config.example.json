@@ -13,7 +13,8 @@
     "bittrex",
     "binance",
     "huboi",
-    "upbit"
+    "upbit",
+    "poloniex"
   ],
   "PEG": 1,
   "INTERVAL_FEED": 60,
