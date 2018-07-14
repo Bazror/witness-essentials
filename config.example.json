@@ -29,5 +29,10 @@
   "EMAIL_FROM":"",
   "ALERT_AFTER_EVERY_MISSED": true,
   "ROTATE_KEYS": false,
-  "ROTATE_ROUNDS": 1
+  "ROTATE_ROUNDS": 1,
+  "PROPS": {
+    "account_creation_fee": "0.100 STEEM",
+    "maximum_block_size": 65536,
+    "sbd_interest_rate": 0
+  }
 }

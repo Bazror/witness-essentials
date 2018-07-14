@@ -10,7 +10,9 @@
     "test_sms": "tsc && node dist/watcher/test_sms.js",
     "test_email": "tsc && node dist/watcher/test_email.js",
     "test_witness": "tsc && node dist/watcher/test_witness.js",
-    "watch": "tsc -w"
+    "update": "tsc && node dist/commands/update.js",
+    "enable": "tsc && node dist/commands/enable.js",
+    "disable": "tsc && node dist/commands/disable.js"
   },
   "repository": {
     "type": "git",

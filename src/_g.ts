@@ -21,7 +21,7 @@ export const enums = {
 }
 
 export let WITNESS_URL = 'https://steemit.com'
-export let PROPS: dsteem.ChainProperties = { account_creation_fee: '0.100 STEEM', maximum_block_size: 65536, sbd_interest_rate: 0 }
+export let PROPS: dsteem.ChainProperties = config.PROPS || { account_creation_fee: '0.100 STEEM', maximum_block_size: 65536, sbd_interest_rate: 0 }
 
 export let log = (...args) => {
   console.log(`${new Date().toISOString()} - ${args}`)

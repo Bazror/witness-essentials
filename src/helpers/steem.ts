@@ -10,18 +10,17 @@ let rpc_node = RPC_NODES ? RPC_NODES[0] : 'https://api.steemit.com'
 
 let client = new dsteem.Client(rpc_node,  { timeout: 8 * 1000 })
 
-export let update_witness = async (key, retries = 0) => {
+export let update_witness = async (key, command = false, retries = 0) => {
   try {
     if (!TEST_MODE) {
       if (key === _g.NULL_KEY) {
         steem.broadcast.witnessUpdate(_g.ACTIVE_KEY, WITNESS, _g.WITNESS_URL, _g.NULL_KEY, _g.PROPS, '0.000 STEEM', async (error, result) => {
-          _g.log(error, result)
           if(!error) {
             _g.log('Disabled Witness')
-            if(USE_EMAIL_ALERT) await send_email(`Disabled Witness`, `Successfully disabled Witness.`)
+            if(USE_EMAIL_ALERT && !command) await send_email(`Disabled Witness`, `Successfully disabled Witness.`)
           } else {
             console.error(error)
-            if(USE_EMAIL_ALERT) await send_email(`Error`, `Couldn't disable Witness`)
+            if(USE_EMAIL_ALERT && !command) await send_email(`Error`, `Couldn't disable Witness`)
           }
         })
       } else {
@@ -36,10 +35,10 @@ export let update_witness = async (key, retries = 0) => {
     console.error('update_witness', e)
     if (retries < _g.retries) {
       await _g.timeout(1)
-      await update_witness(key, retries += 1)
+      await update_witness(key, command, retries += 1)
     } else {
       rpc_failover()
-      await update_witness(key, 0)
+      await update_witness(key, command, 0)
     }
   }
 }

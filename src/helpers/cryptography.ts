@@ -42,7 +42,7 @@ export let initiate_active_key_cryptographie = async () => {
       let active_key = ''
       while (!active_valid) {
         let encryption_key = readline.question(`Please enter your encryption key: `, { hideEchoBack: true })
-        console.log(`The decryption will take a few seconds.`)
+        console.log(`The decryption will take a few seconds.\n`)
         active_key = decrypt(process.env.ENCRYPTED_ACTIVE_KEY, encryption_key)
         active_valid = key_valid(active_key, account.active.key_auths)
         if (active_valid) {
