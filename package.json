@@ -1,7 +1,7 @@
 {
   "name": "witness-essentials",
-  "version": "1.0.1",
-  "description": "Witness Watcher incl. Alerts & Kill-Switch, Pricefeed",
+  "version": "1.0.2",
+  "description": "Essential scripts & tools for STEEM Witnesses",
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/watcher/index.js",
