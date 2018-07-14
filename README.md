@@ -1,6 +1,6 @@
 # Wolf's Witness Essentials
 
-Essentials Scripts for STEEM Witnesses - written in Typescript.
+Essentials scripts & commands for STEEM Witnesses - written in Typescript.
 
 # Witness Watcher
 
