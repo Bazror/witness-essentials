@@ -30,17 +30,75 @@ Script that gets the current STEEM-price of major exchanges and publishes the pr
 
 - RPC-Failover
 
+# Commands
+
+You're also able to update your witness parameters & keys easily through npm commands.
+
+## Update
+
+### `npm run update`
+
+```
+Please enter your encryption key: **************
+The decryption will take a few seconds.
+
+What should be your witness URL? [https://steemit.com/witness/@therealwolf/making-steem-greater-therealwolf-is-now-a-witness] :
+How much do you want the account creation fee to be? (number only - without STEEM) [0.200 STEEM] : 0.1
+How big should be your maximum block size? [65536] :
+How high should be the SBD interest rate? [1] : 0
+
+Configuration:
+----------------
+{ props:
+   { account_creation_fee: '0.100 STEEM',
+     maximum_block_size: 65536,
+     sbd_interest_rate: 0 },
+  url: 'https://steemit.com/witness/@therealwolf/making-steem-greater-therealwolf-is-now-a-witness',
+  witness: 'therealwolf' }
+
+Do you want to update your witness now? [y/n]: y
+2018-07-14T12:10:54.526Z - Updated Witness to STM62KKbXf2igpDV7SfwwQEdFoxfTc2sp9t72FgaEWxPZ6VysqYdT
+Update was sucessful. Exiting now.
+```
+
+## Enable key
+
+### `npm run enable <key>`
+
+```
+npm run enable STM62KKbXf2igpDV7SfwwQEdFoxfTc2sp9t72FgaEWxPZ6VysqYdT
+
+Please enter your encryption key: ****
+The decryption will take a few seconds.
+2018-07-14T11:37:18.572Z - Updated Witness to STM62KKbXf2igpDV7SfwwQEdFoxfTc2sp9t72FgaEWxPZ6VysqYdT
+Update was sucessful. Exiting now.
+```
+
+
+
+## Disable Witness
+
+### `npm run disable`
+
+```
+npm run disable
+
+Please enter your encryption key: ****
+The decryption will take a few seconds.
+2018-07-14T11:42:03.549Z - Disabled Witness
+```
+
 ---
 
 ## Info
 
-Both scripts have been tested and are working, but I'm taking no responsibilities for any bugs. Please review the source-code yourself.
+Everything has been tested, but I'm taking no responsibilities for any bugs. Please review the source-code yourself.
 
 ---
 
 ## How-To
 
-Both scripts use the same config-files.
+All scripts & commands use the same config-files.
 
 ### Setup
 
@@ -87,7 +145,8 @@ You will get notified if any required fields are missing when running the script
     "bittrex",
     "binance",
     "huboi",
-    "upbit"
+    "upbit",
+    "poloniex"
   ],
   "PEG": 1,
   "INTERVAL_FEED": 60,
@@ -102,7 +161,12 @@ You will get notified if any required fields are missing when running the script
   "EMAIL_FROM":"",
   "ALERT_AFTER_EVERY_MISSED": true,
   "ROTATE_KEYS": false, // rotate between your current signing & backup-keys
-  "ROTATE_ROUNDS": 1 // -1 is endless
+  "ROTATE_ROUNDS": 1 // -1 is endless,
+  "PROPS": {
+    "account_creation_fee": "0.100 STEEM",
+    "maximum_block_size": 65536,
+    "sbd_interest_rate": 0
+  }
 }
 ```
 
@@ -149,6 +213,24 @@ pm2 save
 pm2 logs pricefeed
 ```
 
+### Update Witness
+
+```
+yarn run update
+```
+
+### Enable Key
+
+```
+yarn run enable <key>
+```
+
+### Disable Witness
+
+```
+yarn run disable
+```
+
 ### Test SMS
 
 ```
@@ -159,6 +241,12 @@ yarn run test_sms
 
 ```
 yarn run test_email
+```
+
+### Test Witness
+
+```
+yarn run test_witness
 ```
 
 ## Questions or Feedback?
