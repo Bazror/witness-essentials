@@ -1,6 +1,7 @@
 {
   "RPC_NODES": [
     "https://api.steemit.com",
+    "https://api.steemitstage.com",
     "https://steemd.privex.io",
     "https://gtg.steem.house:8090",
     "https://rpc.buildteam.io",
@@ -9,30 +10,22 @@
   "WITNESS": "",
   "TEST_MODE": false,
   "ENABLE_ENCRYPTION": false,
-  "EXCHANGES": [
-    "bittrex",
-    "binance",
-    "huboi",
-    "upbit",
-    "poloniex"
+  "SIGNING_KEYS": [
   ],
-  "PEG": 1,
-  "INTERVAL_FEED": 60,
-  "INTERVAL_WATCHER": 10,
-  "BACKUP_KEYS": [
-  ],
+  "INTERVAL": 1,
   "MISSED_BLOCKS_THRESHOLD": 1,
-  "USE_SMS_ALERT": true,
-  "SMS_PROVIDER": "nexmo|twilio",
-  "USE_EMAIL_ALERT":true,
-  "EMAIL_TO":"",
-  "EMAIL_FROM":"",
-  "ALERT_AFTER_EVERY_MISSED": true,
-  "ROTATE_KEYS": false,
+  "ROTATE_KEYS": true,
   "ROTATE_ROUNDS": 1,
   "PROPS": {
-    "account_creation_fee": "0.100 STEEM",
+    "account_creation_fee": "0.200 STEEM",
     "maximum_block_size": 65536,
     "sbd_interest_rate": 0
-  }
+  },
+  "ALERT_METHODS": [
+    "EMAIL", "TELEGRAM"
+  ],
+  "SMS_PROVIDER": "nexmo",
+  "EMAIL_TO": "",
+  "EMAIL_FROM": "",
+  "ALERT_AFTER_EVERY_MISSED": true
 }

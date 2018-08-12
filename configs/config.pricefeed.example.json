@@ -1,0 +1,11 @@
+{
+  "EXCHANGES": [
+    "bittrex",
+    "binance",
+    "huboi",
+    "upbit",
+    "poloniex"
+  ],
+  "PEG": 1,
+  "INTERVAL": 60
+}

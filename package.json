@@ -10,6 +10,7 @@
     "test_sms": "tsc && node dist/watcher/test_sms.js",
     "test_email": "tsc && node dist/watcher/test_email.js",
     "test_witness": "tsc && node dist/watcher/test_witness.js",
+    "remote": "tsc && node dist/remote/telegram.js",
     "update": "tsc && node dist/commands/update.js",
     "enable": "tsc && node dist/commands/enable.js",
     "disable": "tsc && node dist/commands/disable.js"
@@ -23,6 +24,7 @@
   "dependencies": {
     "@types/node": "^10.5.1",
     "axios": "^0.18.0",
+    "convict": "^4.3.2",
     "crypto-js": "^3.1.9-1",
     "dotenv": "^5.0.0",
     "dsteem": "^0.9.0",
@@ -32,6 +34,7 @@
     "steem": "^0.7.1",
     "steem-js-witness-fix": "^0.7.1",
     "superagent": "^3.8.2",
+    "telegraf": "^3.22.2",
     "twilio": "^3.17.4"
   },
   "bugs": {

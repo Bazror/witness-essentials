@@ -5,7 +5,7 @@ import { get_account, publish_feed } from '../helpers/steem'
 import { initiate_active_key_cryptographie } from '../helpers/cryptography'
 const _g = require('../_g')
 
-let { EXCHANGES, INTERVAL_FEED, ENABLE_ENCRYPTION } = _g.config
+let { EXCHANGES, INTERVAL, ENABLE_ENCRYPTION } = _g.config_pricefeed
 
 let start = async () => {
   if (ENABLE_ENCRYPTION) {
@@ -24,7 +24,7 @@ let main = async () => {
     while (true) {
       let result = await update_pricefeed()
       if (!result) _g.log('Something went wrong. Retrying in 10 sec.')
-      await _g.timeout(result ? INTERVAL_FEED * 60 : 10)
+      await _g.timeout(result ? INTERVAL * 60 : 10)
     }
   } catch (error) {
     await main()

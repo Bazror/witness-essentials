@@ -17,6 +17,8 @@ package-lock.json
 # API keys and secrets
 .env
 config.json
+configs/config.json
+configs/config.pricefeed.json
 
 # Dependency directory
 node_modules
