@@ -32,7 +32,7 @@ let start = async () => {
   console.log({ props: _g.PROPS, url: _g.WITNESS_URL, witness: WITNESS })
   let b = readline.keyInYN(`\nDo you want to update your witness now?`)
   if (!b) return
-  await update_witness(_g.ORIG_KEY)
+  await update_witness(_g.ORIG_KEY, true)
   console.log(`Update was sucessful. Exiting now.`)
 }
 
