@@ -11,11 +11,11 @@ const config = _g.config
 
 import { get_witness_by_account, set_initial_witness, get_next_key } from '../helpers/steem'
 import { initiate_active_key_cryptographie } from '../helpers/cryptography'
+import { check_missing_env } from '../helpers/essentials';
 
 let start = async () => {
   try {
     if (config.ENABLE_ENCRYPTION) {
-      console.log('here')
       await initiate_active_key_cryptographie()
     } else {
       _g.ACTIVE_KEY = process.env.ACTIVE_KEY
@@ -23,6 +23,13 @@ let start = async () => {
 
     let x = await get_witness_by_account()
     set_initial_witness(x)
+
+    console.log('\n----------------------------\n')
+    console.log('Initiating Witness Remote Control')
+    await check_missing_env()
+    _g.log('Witness Remote Control: Active\n')
+    
+
     /*
       Initial Startup when the bot is opened for the first time in telegram
     */
@@ -56,7 +63,7 @@ let start = async () => {
         } else if (ctx.session.command === 'disable') {
           await commands.update_key(_g.NULL_KEY, true, false, ctx)
 
-        } else if(ctx.session.command === 'nextkey') {
+        } else if (ctx.session.command === 'nextkey') {
           let x = await get_witness_by_account()
           _g.WITNESS_URL = x.url
           _g.PROPS = x.props

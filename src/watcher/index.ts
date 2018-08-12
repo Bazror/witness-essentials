@@ -6,6 +6,7 @@ const config = _g.config
 import { send_alerts } from '../helpers/alert'
 import { update_witness, get_witness_by_account, set_initial_witness, get_next_key } from '../helpers/steem'
 import { initiate_active_key_cryptographie } from '../helpers/cryptography'
+import { check_missing_env } from '../helpers/essentials';
 
 let rotation_round = 0
 
@@ -36,7 +37,7 @@ let watch_witness = async () => {
     if (_g.start_total_missed === 99999) {
       console.log('\n----------------------------\n')
       console.log('Initiating Witness Watcher')
-      //await check_missing_variables()
+      await check_missing_env()
       let x = await get_witness_by_account()
       if (x) {
         set_initial_witness(x)
