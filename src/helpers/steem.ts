@@ -151,12 +151,11 @@ export let set_initial_witness = (x) => {
   _g.ORIG_KEY = x.signing_key
   //_g.BACKUP_KEYS_INCL_SIGNING = [x.signing_key].concat(config.BACKUP_KEYS)
   _g.USED_SIGNING_KEYS = [x.signing_key]
-  _g.CURRENT_BACKUP_KEY = get_next_key(x.signing_key, false)
+  _g.CURRENT_BACKUP_KEY = get_next_key(x.signing_key, true)
 }
 
 export let get_next_key = (key, infinite = false) => {
   let index = config.SIGNING_KEYS.indexOf(key)
-
   if (index >= (config.SIGNING_KEYS.length - 1)) {
     if (infinite) {
       return config.SIGNING_KEYS[0]
