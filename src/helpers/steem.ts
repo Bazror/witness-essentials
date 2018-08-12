@@ -143,12 +143,25 @@ let rpc_failover = () => {
   }
 }
 
+/**
+ * Shifts the current signing key to the beginning of the array
+ * @param signing_key Current Signing Key
+ */
+export let set_signing_keys = (signing_key) => {
+  let i = config.SIGNING_KEYS.indexOf(signing_key)
+  if(i > 0) {
+    config.SIGNING_KEYS.splice(i, 1)
+    config.SIGNING_KEYS.unshift(signing_key)
+  }
+}
+
 export let set_initial_witness = (x) => {
   _g.start_total_missed = x.total_missed
   _g.current_total_missed = _g.start_total_missed
   _g.WITNESS_URL = x.url
   _g.PROPS = x.props
   _g.ORIG_KEY = x.signing_key
+  set_signing_keys(x.signing_key)
   //_g.BACKUP_KEYS_INCL_SIGNING = [x.signing_key].concat(config.BACKUP_KEYS)
   _g.USED_SIGNING_KEYS = [x.signing_key]
   _g.CURRENT_BACKUP_KEY = get_next_key(x.signing_key, true)

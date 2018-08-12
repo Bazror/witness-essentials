@@ -15,7 +15,7 @@ export let ORIG_KEY = ''
 export let start_total_missed = 99999
 export let current_total_missed = 99999
 export let USED_SIGNING_KEYS = []
-export let CURRENT_BACKUP_KEY = config.SIGNING_KEYS[0]
+export let CURRENT_BACKUP_KEY = ''
 
 export let WITNESS_URL = 'https://steemit.com'
 export let PROPS: dsteem.ChainProperties = config.PROPS || { account_creation_fee: '0.100 STEEM', maximum_block_size: 65536, sbd_interest_rate: 0 }
@@ -31,4 +31,5 @@ export const enums = {
 
 export let log = (...args) => {
   console.log(`${new Date().toISOString()} - ${args}`)
-} 
+}
+
