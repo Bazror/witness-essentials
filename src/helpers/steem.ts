@@ -1,5 +1,4 @@
 import * as dsteem from 'dsteem'
-//import { Client } from 'dsteem-pool'
 import * as steem from 'steem-js-witness-fix'
 const _g = require('../_g')
 
