@@ -1,6 +1,6 @@
 # Witness Essentials
 
-Essential tools for STEEM-Witnesses.
+Essential tools & scripts for STEEM-Witnesses.
 
 - Witness Watcher incl. failover option, rotation between multiple signing keys and notifications via EMAIL, TELEGRAM & SMS.
 - Pricefeed
